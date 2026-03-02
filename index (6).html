@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Clarity of Charity | Multidimensional Healing for Survivors</title>
+  <meta name="description" content="42 million survivors. Most got no help. That ends here. The Clarity of Charity offers multidimensional healing for childhood sexual abuse survivors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== CSS RESET & VARIABLES ========== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:       #0d0d0e;
+      --ash:       #1a1a1f;
+      --slate:     #2c2c35;
+      --mist:      #9090a0;
+      --fog:       #c8c8d4;
+      --cream:     #f5f2ec;
+      --warm:      #faf8f3;
+      --amber:     #c8883a;
+      --amber-lt:  #e5a85c;
+      --gold:      #f0c070;
+      --rust:      #a03020;
+      --sage:      #4a7060;
+      --white:     #ffffff;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Crimson Pro', Georgia, serif;
+      --font-mono:    'DM Mono', monospace;
+
+      --max-w: 1160px;
+      --section-pad: 120px 24px;
+      --radius: 4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--warm);
+      overflow-x: hidden;
+    }
+
+    /* ========== UTILITY ========== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideRight {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    @keyframes pulseAmber {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200, 136, 58, 0.4); }
+      50%       { box-shadow: 0 0 0 14px rgba(200, 136, 58, 0); }
+    }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========== NAV ========== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(13, 13, 14, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      border-bottom: 1px solid rgba(200,136,58,0.2);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .nav-logo span {
+      display: block;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      color: var(--amber);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fog);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amber-lt); }
+
+    .nav-cta {
+      background: var(--amber) !important;
+      color: var(--ink) !important;
+      padding: 10px 22px !important;
+      border-radius: var(--radius);
+      font-weight: 500 !important;
+      letter-spacing: 0.08em !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--amber-lt) !important;
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--cream);
+      transition: all 0.3s;
+    }
+
+    /* ========== TICKER TAPE ========== */
+    .ticker {
+      background: var(--amber);
+      color: var(--ink);
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 36s linear infinite;
+    }
+
+    .ticker-track span {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0 40px;
+    }
+
+    .ticker-track span::after {
+      content: '◆';
+      margin-left: 40px;
+      opacity: 0.6;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(200,136,58,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(74,112,96,0.06) 0%, transparent 50%),
+        linear-gradient(175deg, #0d0d0e 0%, #141418 60%, #0a0a0c 100%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    .hero-rule {
+      position: absolute;
+      left: 32px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(200,136,58,0.4) 30%, rgba(200,136,58,0.4) 70%, transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 160px 32px 100px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+      animation: fadeUp 0.9s ease 0.15s both;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .hero-sub {
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.65;
+      color: var(--mist);
+      max-width: 640px;
+      margin-bottom: 52px;
+      animation: fadeUp 0.9s ease 0.3s both;
+    }
+
+    .hero-sub strong {
+      color: var(--fog);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s ease 0.45s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: var(--ink);
+      padding: 18px 36px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      animation: pulseAmber 3s ease 2s infinite;
+    }
+
+    .btn-primary:hover {
+      background: var(--amber-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(200,136,58,0.35);
+      animation: none;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--fog);
+      padding: 18px 36px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid rgba(200,200,212,0.25);
+      cursor: pointer;
+      transition: border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--amber);
+      color: var(--amber-lt);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      animation: fadeIn 1s ease 0.7s both;
+    }
+
+    .hero-stat {
+      flex: 1;
+      padding: 36px 32px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .hero-stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--mist);
+      line-height: 1.4;
+    }
+
+    /* ========== TICKER / TRUTH BAND ========== */
+    .truth-band {
+      background: var(--slate);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .truth-band::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--amber), transparent);
+    }
+
+    .truth-band::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--amber), transparent);
+    }
+
+    .truth-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+
+    .truth-quote {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.5vw, 42px);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.3;
+      max-width: 860px;
+      margin: 0 auto 20px;
+    }
+
+    .truth-source {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--mist);
+      letter-spacing: 0.1em;
+    }
+
+    /* ========== PROBLEM SECTION ========== */
+    .problem {
+      padding: var(--section-pad);
+      background: var(--warm);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .section-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .section-intro {
+      font-size: clamp(18px, 2vw, 22px);
+      color: #444;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px 80px;
+      margin-top: 72px;
+      align-items: start;
+    }
+
+    .problem-text p {
+      font-size: 19px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .problem-text p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .problem-callout {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 48px 40px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-callout::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--amber);
+    }
+
+    .callout-stat {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .callout-text {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--fog);
+      margin-bottom: 28px;
+    }
+
+    .callout-source {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--mist);
+    }
+
+    .problem-impacts {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 12px;
+    }
+
+    .impact-item {
+      background: var(--ash);
+      color: var(--cream);
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .impact-item:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .impact-item:last-child  { border-radius: 0 var(--radius) var(--radius) 0; }
+
+    .impact-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .impact-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .impact-desc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--mist);
+    }
+
+    /* ========== STORY SECTION ========== */
+    .story {
+      padding: var(--section-pad);
+      background: var(--ash);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story::before {
+      content: '"';
+      position: absolute;
+      top: -40px;
+      left: -20px;
+      font-family: var(--font-display);
+      font-size: 400px;
+      font-weight: 900;
+      color: rgba(200,136,58,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .story-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .story-left .section-label { color: var(--amber); }
+
+    .story-headline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .story-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .story-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--mist);
+    }
+
+    .story-narrative {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--cream);
+      margin-bottom: 40px;
+    }
+
+    .story-narrative span {
+      color: var(--amber);
+    }
+
+    .story-body {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--mist);
+      margin-bottom: 20px;
+    }
+
+    .story-body strong {
+      color: var(--fog);
+      font-weight: 600;
+    }
+
+    .story-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 20px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-age {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--amber);
+      min-width: 52px;
+      padding-top: 3px;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline-event {
+      font-size: 16px;
+      color: var(--mist);
+      line-height: 1.5;
+    }
+
+    .timeline-event strong {
+      display: block;
+      color: var(--fog);
+      font-size: 15px;
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    /* ========== SOCIAL PROOF ========== */
+    .proof {
+      padding: var(--section-pad);
+      background: var(--warm);
+    }
+
+    .proof-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 72px;
+    }
+
+    .proof-intro .section-label {
+      justify-content: center;
+    }
+
+    .proof-intro .section-label::before { display: none; }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .proof-card {
+      background: var(--ink);
+      padding: 40px 36px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .proof-card:hover { transform: translateY(-4px); }
+
+    .proof-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--amber), transparent);
+    }
+
+    .proof-card-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+
+    .proof-card-stat {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .proof-card-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--mist);
+    }
+
+    .proof-card-source {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(144,144,160,0.5);
+      margin-top: 20px;
+    }
+
+    .proof-moment {
+      margin-top: 72px;
+      background: var(--slate);
+      border-radius: var(--radius);
+      padding: 60px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-moment::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--amber), var(--sage));
+    }
+
+    .proof-moment-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .moment-headline {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .moment-body {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--mist);
+    }
+
+    .moment-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .moment-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .moment-item-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(200,136,58,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .moment-item-text strong {
+      display: block;
+      color: var(--cream);
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .moment-item-text span {
+      font-size: 14px;
+      color: var(--mist);
+      line-height: 1.5;
+    }
+
+    /* ========== SOLUTION / METHOD ========== */
+    .method {
+      padding: var(--section-pad);
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .method-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(74,112,96,0.08) 0%, transparent 60%);
+    }
+
+    .method-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .method-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+
+    .method-headline {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 58px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+    }
+
+    .method-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .method-intro {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--mist);
+    }
+
+    .method-intro strong {
+      color: var(--fog);
+    }
+
+    .method-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .pillar {
+      background: var(--ash);
+      padding: 44px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .pillar:hover { background: #25252d; }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(200,136,58,0.5);
+      margin-bottom: 20px;
+    }
+
+    .pillar-icon {
+      font-size: 32px;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+
+    .pillar-body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--mist);
+    }
+
+    .pillar-accent {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .pillar:hover .pillar-accent {
+      transform: scaleX(1);
+    }
+
+    .method-difference {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .diff-col {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .diff-header {
+      padding: 20px 28px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .diff-header.them {
+      background: rgba(255,255,255,0.04);
+      color: var(--mist);
+    }
+
+    .diff-header.us {
+      background: rgba(200,136,58,0.15);
+      color: var(--amber);
+    }
+
+    .diff-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .diff-list li {
+      padding: 16px 28px;
+      font-size: 16px;
+      color: var(--mist);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .diff-list li:last-child { border-bottom: none; }
+
+    .diff-list.them li::before {
+      content: '✕';
+      color: var(--rust);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .diff-list.us li {
+      color: var(--fog);
+    }
+
+    .diff-list.us li::before {
+      content: '✓';
+      color: var(--amber);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ========== AUTHORITY ========== */
+    .authority {
+      padding: var(--section-pad);
+      background: var(--cream);
+    }
+
+    .authority-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .authority-quote {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 20px;
+      padding-left: 28px;
+      border-left: 3px solid var(--amber);
+    }
+
+    .authority-attr {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--mist);
+      padding-left: 28px;
+    }
+
+    .authority-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .fact-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .fact-marker {
+      width: 36px;
+      height: 36px;
+      background: var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fact-text {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #444;
+    }
+
+    .fact-text strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ========== GET INVOLVED ========== */
+    .involve {
+      padding: var(--section-pad);
+      background: var(--warm);
+    }
+
+    .involve-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 72px;
+    }
+
+    .involve-header .section-label {
+      justify-content: center;
+    }
+
+    .involve-header .section-label::before { display: none; }
+
+    .involve-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .involve-card {
+      border: 1px solid rgba(13,13,14,0.1);
+      border-radius: var(--radius);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .involve-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(13,13,14,0.1);
+    }
+
+    .involve-card.featured {
+      background: var(--ink);
+      border-color: var(--amber);
+    }
+
+    .involve-card.featured::before {
+      content: 'Most Impactful';
+      position: absolute;
+      top: 0; right: 0;
+      background: var(--amber);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 0 0 0 var(--radius);
+    }
+
+    .card-icon {
+      font-size: 40px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .involve-card.featured .card-title {
+      color: var(--cream);
+    }
+
+    .card-body {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .involve-card.featured .card-body {
+      color: var(--mist);
+    }
+
+    .card-amounts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .amount-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px;
+    }
+
+    .amount-dollar {
+      font-family: var(--font-mono);
+      color: var(--amber);
+      font-weight: 500;
+    }
+
+    .amount-desc {
+      color: var(--mist);
+    }
+
+    .card-cta {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.25s;
+    }
+
+    .card-cta.primary {
+      background: var(--amber);
+      color: var(--ink);
+    }
+
+    .card-cta.primary:hover {
+      background: var(--amber-lt);
+      transform: translateY(-1px);
+    }
+
+    .card-cta.outline-dark {
+      border: 1px solid rgba(13,13,14,0.25);
+      color: var(--ink);
+    }
+
+    .card-cta.outline-dark:hover {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+    }
+
+    .card-cta.outline-light {
+      border: 1px solid rgba(200,200,212,0.25);
+      color: var(--fog);
+    }
+
+    .card-cta.outline-light:hover {
+      border-color: var(--amber);
+      color: var(--amber-lt);
+    }
+
+    /* ========== SURVIVORS SECTION ========== */
+    .survivors {
+      padding: var(--section-pad);
+      background: var(--sage);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .survivors::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 10% 50%, rgba(13,13,14,0.5) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 90% 80%, rgba(13,13,14,0.3) 0%, transparent 50%);
+    }
+
+    .survivors-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .survivors-headline {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 54px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .survivors-body {
+      font-size: 19px;
+      line-height: 1.75;
+      color: rgba(245,242,236,0.8);
+      margin-bottom: 40px;
+    }
+
+    .survivors-body strong {
+      color: var(--cream);
+    }
+
+    .survivors-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--cream);
+      color: var(--sage);
+      padding: 18px 36px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: all 0.25s;
+    }
+
+    .survivors-btn:hover {
+      background: var(--warm);
+      transform: translateY(-2px);
+    }
+
+    .survivors-right {
+      background: rgba(13,13,14,0.35);
+      border: 1px solid rgba(245,242,236,0.15);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      backdrop-filter: blur(8px);
+    }
+
+    .survivors-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .survivors-checklist li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 16px;
+      line-height: 1.55;
+      color: rgba(245,242,236,0.85);
+    }
+
+    .survivors-checklist li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .survivors-note {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(245,242,236,0.12);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(245,242,236,0.4);
+      line-height: 1.6;
+    }
+
+    /* ========== DONATE / FINAL CTA ========== */
+    #donate {
+      padding: var(--section-pad);
+      background: var(--ink);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #donate::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 50% 100%, rgba(200,136,58,0.1) 0%, transparent 60%);
+    }
+
+    .donate-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .donate-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+
+    .donate-headline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 72px);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--cream);
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+
+    .donate-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .donate-sub {
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.7;
+      color: var(--mist);
+      margin-bottom: 16px;
+    }
+
+    .donate-micro {
+      font-size: 16px;
+      color: rgba(144,144,160,0.7);
+      margin-bottom: 52px;
+    }
+
+    .donate-amounts {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .amount-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--fog);
+      padding: 14px 28px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+
+    .amount-btn .amount-impact {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--mist);
+    }
+
+    .amount-btn:hover,
+    .amount-btn.active {
+      background: rgba(200,136,58,0.15);
+      border-color: var(--amber);
+      color: var(--amber-lt);
+    }
+
+    .donate-big-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--amber);
+      color: var(--ink);
+      padding: 22px 52px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-bottom: 20px;
+    }
+
+    .donate-big-btn:hover {
+      background: var(--amber-lt);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(200,136,58,0.4);
+    }
+
+    .donate-trust {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(144,144,160,0.5);
+      margin-top: 12px;
+    }
+
+    .donate-urgency {
+      margin-top: 64px;
+      padding: 28px 36px;
+      background: rgba(200,136,58,0.08);
+      border: 1px solid rgba(200,136,58,0.2);
+      border-radius: var(--radius);
+      font-size: 17px;
+      color: var(--mist);
+      line-height: 1.65;
+    }
+
+    .donate-urgency strong {
+      color: var(--amber-lt);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #080809;
+      padding: 80px 24px 40px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 40px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--mist);
+      margin-bottom: 28px;
+      max-width: 320px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 15px;
+      color: var(--mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-crisis {
+      background: rgba(200,136,58,0.08);
+      border: 1px solid rgba(200,136,58,0.2);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-top: 28px;
+    }
+
+    .crisis-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 6px;
+    }
+
+    .crisis-number {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .crisis-desc {
+      font-size: 13px;
+      color: var(--mist);
+      margin-top: 4px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgba(144,144,160,0.4);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgba(144,144,160,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--mist); }
+
+    /* ========== MOBILE NAV ========== */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--ash);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--amber); }
+
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 28px;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 32px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .problem-grid    { grid-template-columns: 1fr; gap: 48px; }
+      .problem-impacts { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid      { grid-template-columns: 1fr 1fr; }
+      .method-pillars  { grid-template-columns: repeat(2, 1fr); }
+      .method-header   { grid-template-columns: 1fr; gap: 24px; }
+      .method-difference { grid-template-columns: 1fr; }
+      .authority-grid  { grid-template-columns: 1fr; gap: 40px; }
+      .story-grid      { grid-template-columns: 1fr; gap: 48px; }
+      .survivors-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top      { grid-template-columns: 1fr 1fr; }
+      .proof-moment-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --section-pad: 80px 20px; }
+      body  { font-size: 18px; }
+      .nav-links    { display: none; }
+      .hamburger    { display: flex; }
+      .hero-stats   { flex-direction: column; }
+      .hero-stat    { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .hero-stat:last-child { border-bottom: none; }
+      .proof-grid   { grid-template-columns: 1fr; }
+      .involve-cards { grid-template-columns: 1fr; }
+      .method-pillars { grid-template-columns: 1fr; }
+      .problem-impacts { grid-template-columns: 1fr; }
+      .impact-item  { border-radius: 0; }
+      .impact-item:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+      .impact-item:last-child  { border-radius: 0 0 var(--radius) var(--radius); }
+      .footer-top   { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .donate-amounts { gap: 8px; }
+      .hero-content { padding: 140px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="main-nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" aria-label="The Clarity of Charity homepage">
+      The Clarity of Charity
+      <span>Multidimensional Healing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#method">The Method</a></li>
+      <li><a href="#involve">Get Involved</a></li>
+      <li><a href="#survivors">Survivors</a></li>
+      <li><a href="#donate" class="nav-cta">Donate Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="#mission"   onclick="closeMobile()">Mission</a>
+    <a href="#method"    onclick="closeMobile()">The Method</a>
+    <a href="#involve"   onclick="closeMobile()">Get Involved</a>
+    <a href="#survivors" onclick="closeMobile()">Survivors</a>
+    <a href="#donate"    onclick="closeMobile()" style="color:var(--amber)">Donate Now</a>
+  </div>
+
+  <!-- ========== TICKER ========== -->
+  <div class="ticker" role="marquee" aria-label="Key facts about childhood sexual abuse">
+    <div class="ticker-track" aria-hidden="true">
+      <span>1 in 4 girls affected before age 18</span>
+      <span>1 in 13 boys affected before age 18</span>
+      <span>42 million survivors in the U.S. alone</span>
+      <span>Most never receive a single day of treatment</span>
+      <span>The damage outlasts the abuser by decades</span>
+      <span>Healing is not just possible — it is inevitable</span>
+      <span>1 in 4 girls affected before age 18</span>
+      <span>1 in 13 boys affected before age 18</span>
+      <span>42 million survivors in the U.S. alone</span>
+      <span>Most never receive a single day of treatment</span>
+      <span>The damage outlasts the abuser by decades</span>
+      <span>Healing is not just possible — it is inevitable</span>
+    </div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="top" aria-labelledby="hero-headline">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-rule" aria-hidden="true"></div>
+
+    <div class="hero-content container">
+      <div class="hero-eyebrow" aria-label="Category">
+        A Crisis Hidden in Plain Sight
+      </div>
+      <h1 class="hero-headline" id="hero-headline">
+        42 Million Survivors.<br>
+        Most Got <em>No Help.</em><br>
+        That Ends Here.
+      </h1>
+      <p class="hero-sub">
+        You already knew about Epstein. You watched <em>Sound of Freedom.</em> You shared the posts.
+        <strong>But did you know that most survivors of childhood sexual abuse never receive a single day of treatment?</strong>
+        The silence doesn't end with the abuse. We end it.
+      </p>
+      <div class="hero-actions">
+        <a href="#donate" class="btn-primary" aria-label="Donate to The Clarity of Charity">
+          <span>Give Healing Today</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="#method" class="btn-secondary">
+          <span>See How We Heal</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats" role="list" aria-label="Impact statistics">
+      <div class="hero-stat" role="listitem">
+        <div class="stat-number">1 in 4</div>
+        <div class="stat-label">Girls experience sexual<br>abuse before age 18</div>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <div class="stat-number">1 in 13</div>
+        <div class="stat-label">Boys experience sexual<br>abuse before age 18</div>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <div class="stat-number">42M</div>
+        <div class="stat-label">Adult survivors living in<br>the United States right now</div>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <div class="stat-number">$9.3B</div>
+        <div class="stat-label">Annual cost to the U.S.<br>economy. A preventable crisis.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="problem" id="mission" aria-labelledby="problem-headline">
+    <div class="container">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-headline reveal" id="problem-headline">
+        The Abuse Stopped.<br>
+        The Damage <em>Didn't.</em>
+      </h2>
+      <p class="section-intro reveal reveal-delay-1">
+        Childhood sexual abuse doesn't just steal childhoods. It rewires the brain, fractures identity,
+        and quietly fuels addiction, depression, broken relationships, and suicide for decades after.
+        The abuser is long gone. The wound remains — invisible to most, undeniable to those who carry it.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-text reveal">
+          <p>
+            <strong>Most survivors are not in dark corners or crisis centers.</strong>
+            They are your neighbors, your coworkers, your friends — functioning on the outside,
+            shattered on the inside. They became experts at surviving. Nobody taught them how to heal.
+          </p>
+          <p>
+            The mental health system was not built for them. Standard therapy can retraumatize.
+            Medication masks. Support groups stall. Decades pass. And the body, as neuroscientist
+            Bessel van der Kolk documented, <em>keeps the score.</em>
+          </p>
+          <p>
+            <strong>This is not a rare tragedy. This is a public health epidemic hiding in plain sight</strong> —
+            and the near-total absence of multidimensional care for survivors is one of the great moral
+            failures of our time.
+          </p>
+        </div>
+
+        <div class="problem-callout reveal reveal-delay-2">
+          <div class="callout-stat">93%</div>
+          <p class="callout-text">
+            of juvenile sexual abuse victims know their perpetrator. This is not a crime committed by strangers in shadows.
+            It is committed at kitchen tables, in bedrooms, by the people children are supposed to trust most.
+          </p>
+          <div class="callout-source">Source: Bureau of Justice Statistics</div>
+        </div>
+
+        <div class="problem-impacts reveal">
+          <div class="impact-item">
+            <span class="impact-icon" aria-hidden="true">🧠</span>
+            <div class="impact-label">Neurological</div>
+            <p class="impact-desc">Trauma physically alters brain structure, affecting memory, emotion regulation, and threat response — sometimes permanently.</p>
+          </div>
+          <div class="impact-item">
+            <span class="impact-icon" aria-hidden="true">💔</span>
+            <div class="impact-label">Relational</div>
+            <p class="impact-desc">Trust violations at a formative age make intimacy, friendship, and healthy attachment profoundly difficult throughout adulthood.</p>
+          </div>
+          <div class="impact-item">
+            <span class="impact-icon" aria-hidden="true">⚗️</span>
+            <div class="impact-label">Behavioral</div>
+            <p class="impact-desc">Survivors face dramatically elevated rates of addiction, self-harm, eating disorders, and high-risk behaviors as coping mechanisms.</p>
+          </div>
+          <div class="impact-item">
+            <span class="impact-icon" aria-hidden="true">🌀</span>
+            <div class="impact-label">Spiritual</div>
+            <p class="impact-desc">Violation of the self at its most innocent creates a profound rupture in meaning, identity, and a person's sense of worthiness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUTH BAND ========== -->
+  <div class="truth-band" role="blockquote">
+    <div class="truth-label">The Neuroscience Is Clear</div>
+    <p class="truth-quote reveal">
+      "Trauma is not just an event that took place sometime in the past;
+      it is also the imprint left by that experience on mind, brain, and body."
+    </p>
+    <div class="truth-source reveal reveal-delay-1">— Dr. Bessel van der Kolk, M.D. · Author, <em>The Body Keeps the Score</em></div>
+  </div>
+
+  <!-- ========== STORY ========== -->
+  <section class="story" aria-labelledby="story-headline">
+    <div class="story-inner container">
+      <div class="story-grid">
+        <div class="story-left">
+          <div class="section-label reveal" style="color:var(--amber)">One Story. Millions of Mirrors.</div>
+          <h2 class="story-headline reveal" id="story-headline">
+            She Was 7<br>the First Time<br>It <em>Happened.</em>
+          </h2>
+          <p class="story-meta reveal reveal-delay-1">
+            Composite survivor narrative — reflecting experiences shared by thousands.
+          </p>
+        </div>
+
+        <div class="story-right">
+          <p class="story-narrative reveal">
+            She was 7 the first time it happened.<br>
+            She was <span>34</span> before she said it out loud.<br>
+            She spent <span>27 years</span> believing it was her fault.<br>
+            She didn't need sympathy.<br>
+            <span>She needed a method.</span>
+          </p>
+          <p class="story-body reveal reveal-delay-1">
+            Between 7 and 34, she built a life that looked fine from the outside.
+            She worked. She loved people. She tried. <strong>She also drank too much, couldn't sleep,
+            couldn't trust, and couldn't understand why she felt like a stranger inside her own skin.</strong>
+          </p>
+          <p class="story-body reveal reveal-delay-2">
+            Three therapists. Two failed relationships. One moment of clarity.
+            When she finally found multidimensional support — healing that addressed
+            her body, her mind, her story, and her spirit — something shifted.
+            For the first time in three decades, she wasn't just surviving. <strong>She was healing.</strong>
+          </p>
+
+          <div class="story-timeline reveal reveal-delay-3">
+            <div class="timeline-item">
+              <div class="timeline-age">Age 7</div>
+              <div class="timeline-event">
+                <strong>The abuse begins</strong>
+                Perpetrated by a trusted family member. The silence starts here.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-age">Age 12</div>
+              <div class="timeline-event">
+                <strong>First signs of coping behaviors</strong>
+                Anxiety, hypervigilance, and early substance use as emotional armor.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-age">Age 24</div>
+              <div class="timeline-event">
+                <strong>First attempt at therapy</strong>
+                Retraumatizing. She stops going after six weeks.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-age">Age 34</div>
+              <div class="timeline-event">
+                <strong>She finds The Clarity of Charity</strong>
+                Multidimensional care. The right method. The beginning of what's actually possible.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL PROOF ========== -->
+  <section class="proof" aria-labelledby="proof-headline">
+    <div class="container">
+      <div class="proof-intro">
+        <div class="section-label reveal">Why the World Is Finally Listening</div>
+        <h2 class="section-headline reveal" id="proof-headline">
+          The World Woke Up.<br><em>We Were Already Here.</em>
+        </h2>
+        <p class="section-intro reveal reveal-delay-1">
+          From the Epstein files to the record-breaking impact of <em>Sound of Freedom</em>,
+          a cultural awakening is underway. The question people are finally asking is:
+          <strong>What happens to the survivors?</strong>
+        </p>
+      </div>
+
+      <div class="proof-grid">
+        <div class="proof-card reveal">
+          <div class="proof-card-label">Scale of the Crisis</div>
+          <div class="proof-card-stat">42M</div>
+          <p class="proof-card-text">Adult survivors of childhood sexual abuse are living in America right now — the vast majority without adequate support or treatment.</p>
+          <div class="proof-card-source">Source: CDC, National Sexual Violence Resource Center</div>
+        </div>
+        <div class="proof-card reveal reveal-delay-1">
+          <div class="proof-card-label">Economic Impact</div>
+          <div class="proof-card-stat">$9.3B</div>
+          <p class="proof-card-text">The CDC estimates this as the annual economic burden — in healthcare, criminal justice, and lost productivity. Healing is not charity. It is infrastructure.</p>
+          <div class="proof-card-source">Source: Centers for Disease Control and Prevention</div>
+        </div>
+        <div class="proof-card reveal reveal-delay-2">
+          <div class="proof-card-label">The Treatment Gap</div>
+          <div class="proof-card-stat">&lt; 20%</div>
+          <p class="proof-card-text">Fewer than 1 in 5 survivors ever receive trauma-specific treatment. The rest are left to manage alone — or not at all.</p>
+          <div class="proof-card-source">Source: SAMHSA National Survey Data</div>
+        </div>
+      </div>
+
+      <div class="proof-moment reveal">
+        <div class="proof-moment-inner">
+          <div>
+            <h3 class="moment-headline">
+              "When the Culture Started Paying Attention, We Were Already in the Trenches."
+            </h3>
+            <p class="moment-body">
+              The Epstein files revealed a global network. <em>Sound of Freedom</em> put trafficking on the mainstream map.
+              Survivor advocacy is finally getting airtime. <strong>But awareness without action changes nothing.</strong>
+              The Clarity of Charity is the action — the place where cultural outrage becomes actual healing.
+            </p>
+          </div>
+          <div class="moment-items">
+            <div class="moment-item">
+              <div class="moment-item-icon" aria-hidden="true">🎬</div>
+              <div class="moment-item-text">
+                <strong>Sound of Freedom</strong>
+                <span>Grossed over $250M globally, proving mainstream appetite for survivor-centered stories.</span>
+              </div>
+            </div>
+            <div class="moment-item">
+              <div class="moment-item-icon" aria-hidden="true">📄</div>
+              <div class="moment-item-text">
+                <strong>The Epstein Files</strong>
+                <span>Confirmed what survivors already knew — and galvanized millions to demand accountability and healing.</span>
+              </div>
+            </div>
+            <div class="moment-item">
+              <div class="moment-item-icon" aria-hidden="true">⚖️</div>
+              <div class="moment-item-text">
+                <strong>Legislative Change</strong>
+                <span>Lookback window laws expanding across the U.S., giving survivors legal pathways they were long denied.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== METHOD / SOLUTION ========== -->
+  <section class="method" id="method" aria-labelledby="method-headline">
+    <div class="method-bg" aria-hidden="true"></div>
+    <div class="method-inner">
+      <div class="method-header">
+        <div>
+          <div class="section-label reveal" style="color:var(--amber)">The Solution</div>
+          <h2 class="method-headline reveal" id="method-headline">
+            We Don't Just Treat<br>
+            Trauma. We <em>Dismantle</em> It.
+          </h2>
+        </div>
+        <div>
+          <p class="method-intro reveal">
+            Most organizations <strong>stabilize survivors.</strong> We transform them.
+            Childhood sexual abuse doesn't wound just one part of a person — it fragments them across
+            every dimension of self. Partial healing isn't healing.
+            <strong>We treat the whole person.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="method-pillars">
+        <div class="pillar reveal">
+          <div class="pillar-num">01</div>
+          <span class="pillar-icon" aria-hidden="true">🧠</span>
+          <h3 class="pillar-title">The Mind</h3>
+          <p class="pillar-body">
+            Evidence-based therapeutic modalities — including trauma-focused cognitive behavioral approaches —
+            that reprocess the narrative without retraumatizing. You learn to hold the story without being held hostage by it.
+          </p>
+          <div class="pillar-accent" aria-hidden="true"></div>
+        </div>
+        <div class="pillar reveal reveal-delay-1">
+          <div class="pillar-num">02</div>
+          <span class="pillar-icon" aria-hidden="true">🫀</span>
+          <h3 class="pillar-title">The Body</h3>
+          <p class="pillar-body">
+            Trauma lives in the body long after the mind has tried to forget.
+            Somatic practices, movement-based healing, and nervous system regulation restore
+            the body's capacity for safety — and for joy.
+          </p>
+          <div class="pillar-accent" aria-hidden="true"></div>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <div class="pillar-num">03</div>
+          <span class="pillar-icon" aria-hidden="true">✨</span>
+          <h3 class="pillar-title">The Spirit</h3>
+          <p class="pillar-body">
+            Violation of the self at its most innocent creates a wound at the level of identity and meaning.
+            We address the spiritual dimension of recovery — rebuilding connection to self, to purpose, and to worth.
+          </p>
+          <div class="pillar-accent" aria-hidden="true"></div>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <div class="pillar-num">04</div>
+          <span class="pillar-icon" aria-hidden="true">📖</span>
+          <h3 class="pillar-title">The Story</h3>
+          <p class="pillar-body">
+            Survivors don't need to be saved from their story — they need to become its author.
+            Narrative reconstruction and community witness help transform shame into testimony,
+            and testimony into power.
+          </p>
+          <div class="pillar-accent" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="method-difference">
+        <div class="diff-col reveal">
+          <div class="diff-header them">What Most Programs Offer</div>
+          <ul class="diff-list them">
+            <li>Short-term crisis stabilization only</li>
+            <li>Talk therapy as the sole modality</li>
+            <li>Medication management without integration</li>
+            <li>Survivor treated as a diagnosis, not a person</li>
+            <li>Healing defined as "not in crisis"</li>
+            <li>No community or ongoing support structure</li>
+          </ul>
+        </div>
+        <div class="diff-col reveal reveal-delay-1">
+          <div class="diff-header us">What The Clarity of Charity Provides</div>
+          <ul class="diff-list us">
+            <li>Multidimensional, long-arc healing programs</li>
+            <li>Mind, body, spirit, and story integration</li>
+            <li>Trauma-informed approach at every touchpoint</li>
+            <li>Survivor treated as a whole, complex human being</li>
+            <li>Healing defined as "thriving, not just surviving"</li>
+            <li>Ongoing survivor community and peer connection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AUTHORITY ========== -->
+  <section class="authority" aria-labelledby="authority-headline">
+    <div class="container">
+      <div class="authority-grid">
+        <div>
+          <div class="section-label reveal">Grounded in Research</div>
+          <h2 class="section-headline reveal" id="authority-headline" style="margin-bottom:36px;">
+            The Science <em>Backs</em> the Work.
+          </h2>
+          <blockquote class="authority-quote reveal">
+            Trauma is not stored primarily as a narrative memory.
+            It is stored in the body, in the nervous system — and that is where healing must begin.
+          </blockquote>
+          <div class="authority-attr reveal reveal-delay-1">
+            Synthesized from research by Bessel van der Kolk, M.D., Peter Levine, Ph.D., and Judith Herman, M.D.
+          </div>
+        </div>
+
+        <div class="authority-facts">
+          <div class="fact-item reveal">
+            <div class="fact-marker">01</div>
+            <p class="fact-text">
+              <strong>The CDC classifies childhood sexual abuse as an Adverse Childhood Experience (ACE)</strong>
+              directly linked to higher rates of heart disease, cancer, depression, and substance abuse in adulthood.
+              This is a physical health crisis as much as a mental one.
+            </p>
+          </div>
+          <div class="fact-item reveal reveal-delay-1">
+            <div class="fact-marker">02</div>
+            <p class="fact-text">
+              <strong>Neuroscience confirms that trauma physically alters brain structure</strong> — particularly
+              the amygdala, hippocampus, and prefrontal cortex. Healing requires approaches that
+              address this neurological reality, not just the emotional narrative.
+            </p>
+          </div>
+          <div class="fact-item reveal reveal-delay-2">
+            <div class="fact-marker">03</div>
+            <p class="fact-text">
+              <strong>Survivor-led programs consistently outperform clinical-only models</strong> in producing
+              durable healing. When those who have lived it design the path through it,
+              something fundamentally different becomes possible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GET INVOLVED ========== -->
+  <section class="involve" id="involve" aria-labelledby="involve-headline">
+    <div class="container">
+      <div class="involve-header">
+        <div class="section-label reveal">Take Action</div>
+        <h2 class="section-headline reveal" id="involve-headline">
+          Be the Reason Someone<br><em>Rewrites Their Story.</em>
+        </h2>
+        <p class="section-intro reveal reveal-delay-1">
+          You're not just donating money. You're closing the gap between a survivor's worst chapter
+          and the life they were always meant to live.
+        </p>
+      </div>
+
+      <div class="involve-cards">
+        <!-- DONATE -->
+        <div class="involve-card featured reveal">
+          <span class="card-icon" aria-hidden="true">💛</span>
+          <h3 class="card-title">Donate</h3>
+          <p class="card-body">Every dollar is deployed directly into healing programs. No bureaucracy. No overhead bloat. Real support for real people — starting with the next dollar that arrives.</p>
+          <div class="card-amounts" aria-label="Donation impact levels">
+            <div class="amount-line">
+              <span class="amount-dollar">$45</span>
+              <span class="amount-desc">Covers one therapeutic session</span>
+            </div>
+            <div class="amount-line">
+              <span class="amount-dollar">$180</span>
+              <span class="amount-desc">Covers a full month of support</span>
+            </div>
+            <div class="amount-line">
+              <span class="amount-dollar">$540</span>
+              <span class="amount-desc">Funds a survivor's full quarter</span>
+            </div>
+            <div class="amount-line">
+              <span class="amount-dollar">$2,160</span>
+              <span class="amount-desc">Transforms a life for a full year</span>
+            </div>
+          </div>
+          <a href="#donate" class="card-cta primary">Donate Now</a>
+        </div>
+
+        <!-- VOLUNTEER -->
+        <div class="involve-card reveal reveal-delay-1">
+          <span class="card-icon" aria-hidden="true">🤝</span>
+          <h3 class="card-title">Volunteer</h3>
+          <p class="card-body">You don't need a degree to change a life. You need a heart willing to show up. We provide full training, supervision, and support. You provide presence — and that changes everything.</p>
+          <p class="card-body" style="margin-top:0;">
+            We are looking for compassionate people ready to walk alongside survivors as peer supporters,
+            community builders, and advocates.
+          </p>
+          <a href="mailto:volunteer@theclarityofcharity.org" class="card-cta outline-dark">Apply to Volunteer</a>
+        </div>
+
+        <!-- SPREAD THE WORD -->
+        <div class="involve-card reveal reveal-delay-2">
+          <span class="card-icon" aria-hidden="true">📣</span>
+          <h3 class="card-title">Amplify</h3>
+          <p class="card-body">The most powerful thing you can do — after giving — is talk. Share our work. Tell the stories. Break the silence that lets this crisis continue.</p>
+          <p class="card-body" style="margin-top:0;">
+            Every conversation you start has the potential to reach someone who has been waiting
+            their entire life to hear that help exists.
+          </p>
+          <a href="mailto:connect@theclarityofcharity.org" class="card-cta outline-dark">Get Sharing Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SURVIVORS ========== -->
+  <section class="survivors" id="survivors" aria-labelledby="survivors-headline">
+    <div class="survivors-inner">
+      <div>
+        <div class="section-label reveal" style="color:var(--gold)">To Every Survivor Reading This</div>
+        <h2 class="survivors-headline reveal" id="survivors-headline">
+          If This Page Found You —<br>You Didn't Get Here<br>by Accident.
+        </h2>
+        <p class="survivors-body reveal reveal-delay-1">
+          You've already done the hardest part. You've survived the unsurvivable.
+          <strong>You don't need to perform your healing for anyone. You don't need to be ready in any particular way.</strong>
+          You just need to take one step — and we will meet you wherever that step lands.
+        </p>
+        <p class="survivors-body reveal reveal-delay-2">
+          This is a place built by people who understand from the inside out.
+          There is no judgment here. No timeline. No standard you have to meet first.
+          <strong>You are already enough to begin.</strong>
+        </p>
+        <a href="mailto:support@theclarityofcharity.org" class="survivors-btn reveal reveal-delay-3">
+          <span>Reach Out Confidentially</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="survivors-right reveal reveal-delay-2">
+        <div class="section-label" style="color:var(--gold);justify-content:flex-start;margin-bottom:20px;">
+          What Support Looks Like Here
+        </div>
+        <ul class="survivors-checklist" aria-label="Support features for survivors">
+          <li>Completely confidential — your story belongs to you</li>
+          <li>No waitlist, no gatekeeping, no prerequisites</li>
+          <li>Survivor-led — we've walked this path too</li>
+          <li>Multidimensional — mind, body, spirit, and story</li>
+          <li>Trauma-informed at every single touchpoint</li>
+          <li>Community of people who genuinely understand</li>
+          <li>No pressure — you set the pace of your healing</li>
+          <li>Long-term support, not just crisis intervention</li>
+        </ul>
+        <div class="survivors-note">
+          If you are in immediate danger or crisis, please contact
+          RAINN at 1-800-656-4673 or text HOME to 741741.
+          You matter. Help is available right now.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DONATE / FINAL CTA ========== -->
+  <section id="donate" aria-labelledby="donate-headline">
+    <div class="donate-inner">
+      <div class="donate-eyebrow reveal">The Time to Act Is Now</div>
+      <h2 class="donate-headline reveal" id="donate-headline">
+        Every Day of Silence<br>Is a Day <em>Healing Waits.</em>
+      </h2>
+      <p class="donate-sub reveal reveal-delay-1">
+        For less than the cost of a daily coffee, you can give a survivor a month of support.
+        Choose what you're able to give — and know that every dollar goes directly into healing.
+      </p>
+      <p class="donate-micro reveal reveal-delay-2">Select an amount below or give any amount you choose.</p>
+
+      <div class="donate-amounts reveal reveal-delay-2" role="group" aria-label="Donation amount options">
+        <a href="mailto:donate@theclarityofcharity.org?subject=Donation%20-%20%2445" class="amount-btn">
+          <span>$45</span>
+          <span class="amount-impact">1 Session</span>
+        </a>
+        <a href="mailto:donate@theclarityofcharity.org?subject=Donation%20-%20%24180" class="amount-btn">
+          <span>$180</span>
+          <span class="amount-impact">1 Month</span>
+        </a>
+        <a href="mailto:donate@theclarityofcharity.org?subject=Donation%20-%20%24540" class="amount-btn">
+          <span>$540</span>
+          <span class="amount-impact">1 Quarter</span>
+        </a>
+        <a href="mailto:donate@theclarityofcharity.org?subject=Donation%20-%20%242%2C160" class="amount-btn">
+          <span>$2,160</span>
+          <span class="amount-impact">Full Year</span>
+        </a>
+        <a href="mailto:donate@theclarityofcharity.org?subject=Custom%20Donation" class="amount-btn">
+          <span>Custom</span>
+          <span class="amount-impact">Your Choice</span>
+        </a>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <a href="mailto:donate@theclarityofcharity.org?subject=I%20Want%20to%20Help" class="donate-big-btn reveal reveal-delay-3">
+          <span>Give Healing Today</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <p class="donate-trust reveal">
+          🔒 &nbsp;Secure · Confidential · 100% Directed to Survivor Programs
+        </p>
+      </div>
+
+      <div class="donate-urgency reveal">
+        <strong>The outrage you felt watching Sound of Freedom — the anger when you read the Epstein files —
+        this is where it becomes something real.</strong>
+        You're not just a bystander to this crisis. You're a person with the power to end someone's silence today.
+        Don't let the moment pass. Act now.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">The Clarity of Charity</div>
+          <div class="footer-brand-sub">Multidimensional Healing for Survivors</div>
+          <p class="footer-tagline">
+            Founded by survivors. Guided by research. Driven by the conviction that
+            healing is not just possible — it is inevitable when the right support exists.
+          </p>
+          <div class="footer-crisis" role="complementary" aria-label="Crisis resources">
+            <div class="crisis-label">Crisis Support — Available Now</div>
+            <div class="crisis-number">1-800-656-4673</div>
+            <div class="crisis-desc">RAINN National Sexual Assault Hotline · Free, confidential, 24/7</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigate</div>
+          <ul class="footer-links" aria-label="Site navigation">
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#method">The Method</a></li>
+            <li><a href="#involve">Get Involved</a></li>
+            <li><a href="#survivors">For Survivors</a></li>
+            <li><a href="#donate">Donate</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <ul class="footer-links" aria-label="Contact options">
+            <li><a href="mailto:connect@theclarityofcharity.org">General Inquiries</a></li>
+            <li><a href="mailto:support@theclarityofcharity.org">Survivor Support</a></li>
+            <li><a href="mailto:volunteer@theclarityofcharity.org">Volunteer</a></li>
+            <li><a href="mailto:donate@theclarityofcharity.org">Donate</a></li>
+            <li><a href="mailto:press@theclarityofcharity.org">Press & Media</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2025 The Clarity of Charity · All Rights Reserved
+        </p>
+        <div class="footer-legal">
+          <a href="mailto:connect@theclarityofcharity.org">Privacy Policy</a>
+          <a href="mailto:connect@theclarityofcharity.org">Terms of Use</a>
+          <a href="mailto:connect@theclarityofcharity.org">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // --- NAV SCROLL BEHAVIOR ---
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // --- HAMBURGER / MOBILE MENU ---
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu   = document.getElementById('mobile-menu');
+    const mobileClose  = document.getElementById('mobile-close');
+
+    hamburgerBtn.addEventListener('click', function() {
+      mobileMenu.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileClose.addEventListener('click', function() {
+      closeMobile();
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobile();
+      }
+    });
+
+    // --- SCROLL REVEAL ---
+    var revealElements = document.querySelectorAll('.reveal');
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // --- DONATE AMOUNT BUTTON ACTIVE STATE ---
+    var amountBtns = document.querySelectorAll('.amount-btn');
+    amountBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        amountBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+      });
+    });
+
+    // --- SMOOTH ANCHOR SCROLL (with nav offset) ---
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          var offset = 80;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
