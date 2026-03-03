@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Clarity of Charity | Multidimensional Healing for Survivors</title>
+  <meta name="description" content="Every 30 seconds a child is sold. 8 million disappear every year. The Clarity of Charity is building the healing infrastructure survivors deserve." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f2236; --navy2: #172f48; --red: #b52a2a; --red2: #8a1f1f;
+      --gold: #c9a24e; --gold2: #a07c30; --teal: #2a7a72; --teal2: #1d5a54;
+      --cream: #f5ede0; --offwhite: #f0ece4; --dark: #0a1520;
+      --gray: #7a8a99; --lgray: #c8d4de;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--navy); color: var(--offwhite); font-family: "Barlow", sans-serif; font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: .9rem 3rem; background: rgba(10,21,32,.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,162,78,.15); transition: padding .3s; }
+    nav.scrolled { padding: .6rem 3rem; }
+    .nav-brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-text span:first-child { font-family: "Playfair Display", serif; font-size: .95rem; font-weight: 700; color: var(--gold); letter-spacing: .04em; }
+    .nav-logo-text span:last-child { font-family: "Barlow Condensed", sans-serif; font-size: .62rem; font-weight: 600; color: var(--lgray); letter-spacing: .12em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: "Barlow Condensed", sans-serif; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--lgray); transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-donate { font-family: "Barlow Condensed", sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: var(--red); color: #fff; padding: .55rem 1.3rem; display: inline-block; transition: background .2s; }
+    .nav-donate:hover { background: var(--red2); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .4rem; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--lgray); }
+
+    /* HERO */
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; background: linear-gradient(160deg,#060e18 0%,#0f2236 40%,#0d2a1e 100%); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,162,78,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,78,.04) 1px,transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle,rgba(181,42,42,.12) 0%,transparent 70%); top: -100px; right: -100px; pointer-events: none; }
+    .hero-glow2 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle,rgba(42,122,114,.1) 0%,transparent 70%); bottom: 50px; left: 5%; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 8rem 3rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .hero-left { animation: fadeUp .9s ease both; }
+    .hero-eyebrow { font-family: "Barlow Condensed",sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem; display: flex; align-items: center; gap: .6rem; }
+    .hero-eyebrow::before { content: ""; display: inline-block; width: 28px; height: 2px; background: var(--red); }
+    .hero-h1 { font-family: "Playfair Display",serif; font-size: clamp(2.4rem,5vw,4rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 1.2rem; }
+    .hero-h1 em { font-style: italic; color: var(--red); }
+    .hero-h1 .gold { color: var(--gold); font-style: normal; }
+    .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--lgray); line-height: 1.75; margin-bottom: 2rem; max-width: 500px; }
+    .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { font-family: "Barlow Condensed",sans-serif; font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: var(--red); color: #fff; padding: .9rem 2rem; border: 2px solid var(--red); display: inline-block; transition: all .2s; }
+    .btn-primary:hover { background: transparent; color: var(--red); }
+    .btn-secondary { font-family: "Barlow Condensed",sans-serif; font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: transparent; color: var(--gold); padding: .9rem 2rem; border: 2px solid var(--gold); display: inline-block; transition: all .2s; }
+    .btn-secondary:hover { background: var(--gold); color: var(--dark); }
+    .hero-right { animation: fadeUp 1.1s .2s ease both; }
+    .clock-card { background: rgba(10,21,32,.7); border: 1px solid rgba(181,42,42,.35); padding: 2.5rem; position: relative; overflow: hidden; }
+    .clock-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,var(--red),var(--gold)); }
+    .clock-label { font-family: "Barlow Condensed",sans-serif; font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+    .clock-main { font-family: "Playfair Display",serif; font-size: clamp(1.3rem,2.5vw,1.8rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: .5rem; }
+    .clock-counter { font-family: "Barlow Condensed",sans-serif; font-size: 4.5rem; font-weight: 800; color: var(--red); line-height: 1; margin: .5rem 0; font-variant-numeric: tabular-nums; }
+    .clock-sub { font-size: .82rem; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
+    .clock-divider { height: 1px; background: rgba(201,162,78,.2); margin: 1.5rem 0; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-item { text-align: center; padding: .8rem; background: rgba(255,255,255,.03); }
+    .stat-num { font-family: "Barlow Condensed",sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; display: block; }
+    .stat-lbl { font-size: .68rem; color: var(--gray); display: block; margin-top: .3rem; }
+    .scroll-down { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .4rem; color: var(--gray); font-family: "Barlow Condensed",sans-serif; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; animation: bounce 2s infinite; }
+    .scroll-down svg { width: 18px; }
+
+    /* TRUTH BANNER */
+    #truth { background: var(--red2); padding: 1.5rem 3rem; text-align: center; }
+    #truth p { font-family: "Playfair Display",serif; font-size: clamp(1rem,2.5vw,1.35rem); font-style: italic; color: #fff; max-width: 900px; margin: 0 auto; line-height: 1.6; }
+    #truth strong { font-style: normal; font-weight: 700; color: var(--gold); }
+
+    /* SECTION BASE */
+    section { position: relative; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+    .section-eyebrow { font-family: "Barlow Condensed",sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: .6rem; }
+    .section-eyebrow::before { content: ""; display: inline-block; width: 22px; height: 2px; background: var(--gold); }
+    .section-title { font-family: "Playfair Display",serif; font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 1.4rem; }
+    .section-title em { color: var(--gold); font-style: italic; }
+    .section-body { font-size: 1rem; font-weight: 300; color: var(--lgray); line-height: 1.85; max-width: 680px; }
+    .section-body strong { color: #fff; font-weight: 600; }
+
+    /* MISSION */
+    #mission { background: linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%); }
+    #mission .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .founder-card { background: rgba(255,255,255,.04); border: 1px solid rgba(201,162,78,.2); padding: 2rem; margin-bottom: 1.5rem; }
+    .founder-card-label { font-family: "Barlow Condensed",sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: .8rem; }
+    .founder-card p { font-size: .95rem; font-weight: 300; color: var(--lgray); line-height: 1.75; font-style: italic; }
+    .proof-pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+    .pill { font-family: "Barlow Condensed",sans-serif; font-size: .63rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .35rem .85rem; border: 1px solid rgba(201,162,78,.35); color: var(--gold); background: rgba(201,162,78,.06); }
+
+    /* NUMBERS */
+    #numbers { background: var(--dark); border-top: 1px solid rgba(201,162,78,.1); border-bottom: 1px solid rgba(201,162,78,.1); }
+    #numbers .section-inner { padding-top: 5rem; padding-bottom: 5rem; }
+    .numbers-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 3rem; border: 1px solid rgba(201,162,78,.15); }
+    .num-block { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid rgba(201,162,78,.12); transition: background .25s; }
+    .num-block:last-child { border-right: none; }
+    .num-block:hover { background: rgba(201,162,78,.04); }
+    .num-big { font-family: "Barlow Condensed",sans-serif; font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 800; color: var(--red); line-height: 1.1; display: block; margin-bottom: .5rem; }
+    .num-big.gold { color: var(--gold); }
+    .num-desc { font-size: .8rem; color: var(--gray); line-height: 1.5; }
+    .num-source { font-size: .6rem; color: rgba(122,138,153,.55); margin-top: .4rem; display: block; }
+    .ticker-bar { background: rgba(181,42,42,.1); border: 1px solid rgba(181,42,42,.3); padding: 1.2rem 2rem; display: flex; align-items: center; gap: 1.5rem; margin-top: 3rem; flex-wrap: wrap; }
+    .ticker-label { font-family: "Barlow Condensed",sans-serif; font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); flex-shrink: 0; }
+    .ticker-number { font-family: "Barlow Condensed",sans-serif; font-size: 1.6rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+    .ticker-text { font-size: .85rem; color: var(--lgray); font-style: italic; font-weight: 300; }
+
+    /* PROOF */
+    #proof { background: var(--navy2); }
+    .proof-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .proof-card { background: rgba(10,21,32,.6); border: 1px solid rgba(255,255,255,.07); padding: 2rem; position: relative; transition: border-color .25s, transform .25s; }
+    .proof-card:hover { border-color: rgba(201,162,78,.3); transform: translateY(-3px); }
+    .proof-card::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+    .proof-card.c-red::before { background: var(--red); }
+    .proof-card.c-gold::before { background: var(--gold); }
+    .proof-card.c-teal::before { background: var(--teal); }
+    .proof-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .proof-card h3 { font-family: "Playfair Display",serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: .6rem; line-height: 1.3; }
+    .proof-card p { font-size: .85rem; font-weight: 300; color: var(--gray); line-height: 1.7; }
+    .proof-card p strong { color: var(--lgray); font-weight: 500; }
+
+    /* GAP */
+    #gap { background: linear-gradient(135deg,#0a1520 0%,#0f2236 50%,#0d2a1e 100%); }
+    #gap .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .gap-quote { border-left: 3px solid var(--gold); padding: 1.5rem 2rem; background: rgba(201,162,78,.05); font-family: "Playfair Display",serif; font-size: 1.1rem; font-style: italic; color: var(--offwhite); line-height: 1.7; margin: 2rem 0; }
+    .gap-list { list-style: none; display: flex; flex-direction: column; gap: .8rem; }
+    .gap-list li { display: flex; gap: .8rem; font-size: .9rem; color: var(--lgray); font-weight: 300; align-items: flex-start; }
+    .gap-list li::before { content: "\2192"; color: var(--red); font-weight: 700; flex-shrink: 0; }
+    .gap-list li strong { color: #fff; font-weight: 600; }
+    .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+    .pillar { padding: 1.5rem; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-top: 2px solid var(--teal); }
+    .pillar h4 { font-family: "Barlow Condensed",sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: .5rem; }
+    .pillar p { font-size: .82rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
+
+    /* VISION */
+    #vision { background: var(--navy2); border-top: 1px solid rgba(255,255,255,.05); }
+    .vision-build-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; margin-top: 2.5rem; }
+    .build-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.4rem; background: rgba(10,21,32,.5); border: 1px solid rgba(255,255,255,.06); transition: border-color .25s; }
+    .build-item:hover { border-color: rgba(201,162,78,.25); }
+    .build-num { font-family: "Barlow Condensed",sans-serif; font-size: 1.6rem; font-weight: 800; color: rgba(201,162,78,.25); line-height: 1; flex-shrink: 0; width: 2.2rem; }
+    .build-content h4 { font-size: .9rem; font-weight: 600; color: #fff; margin-bottom: .35rem; }
+    .build-content p { font-size: .8rem; color: var(--gray); line-height: 1.6; font-weight: 300; }
+
+    /* INVOLVE */
+    #involve { background: var(--dark); }
+    .involve-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; align-items: end; }
+    .involve-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .involve-card { padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem; border: 1px solid rgba(255,255,255,.07); transition: border-color .25s, transform .25s; }
+    .involve-card:hover { transform: translateY(-4px); }
+    .card-donate { border-color: rgba(181,42,42,.35); background: rgba(181,42,42,.07); }
+    .card-donate:hover { border-color: rgba(181,42,42,.7); }
+    .card-volunteer { border-color: rgba(42,122,114,.3); background: rgba(42,122,114,.06); }
+    .card-volunteer:hover { border-color: rgba(42,122,114,.6); }
+    .card-share { border-color: rgba(201,162,78,.2); background: rgba(201,162,78,.04); }
+    .card-share:hover { border-color: rgba(201,162,78,.5); }
+    .involve-icon { font-size: 1.8rem; line-height: 1; }
+    .involve-card h3 { font-family: "Playfair Display",serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+    .involve-card p { font-size: .85rem; color: var(--gray); line-height: 1.7; font-weight: 300; flex-grow: 1; }
+    .involve-card p strong { color: var(--lgray); font-weight: 500; }
+    .involve-btn { font-family: "Barlow Condensed",sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .75rem 1.5rem; border: 2px solid; background: transparent; display: inline-block; transition: all .2s; cursor: pointer; align-self: flex-start; }
+    .card-donate .involve-btn { border-color: var(--red); color: var(--red); }
+    .card-donate .involve-btn:hover { background: var(--red); color: #fff; }
+    .card-volunteer .involve-btn { border-color: var(--teal); color: var(--teal); }
+    .card-volunteer .involve-btn:hover { background: var(--teal); color: #fff; }
+    .card-share .involve-btn { border-color: var(--gold); color: var(--gold); }
+    .card-share .involve-btn:hover { background: var(--gold); color: var(--dark); }
+    .tier-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: .8rem; margin: 1.5rem 0; }
+    .tier { text-align: center; padding: 1.2rem .8rem; background: rgba(255,255,255,.03); border: 1px solid rgba(181,42,42,.2); }
+    .tier-amount { font-family: "Barlow Condensed",sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--red); display: block; margin-bottom: .3rem; }
+    .tier-desc { font-size: .68rem; color: var(--gray); line-height: 1.4; }
+
+    /* DONATE */
+    #donate { background: linear-gradient(160deg,#060e18 0%,#12291c 100%); border-top: 1px solid rgba(201,162,78,.15); }
+    #donate .section-inner { max-width: 800px; text-align: center; }
+    .donate-urgency { font-family: "Barlow Condensed",sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: .6rem; }
+    .donate-urgency::before, .donate-urgency::after { content: ""; display: inline-block; width: 28px; height: 2px; background: var(--red); }
+    #donate .section-title { text-align: center; }
+    #donate .section-body { max-width: 600px; margin: 0 auto 2rem; text-align: center; }
+    .donate-live { background: rgba(181,42,42,.1); border: 1px solid rgba(181,42,42,.3); padding: 1.2rem 2rem; display: inline-flex; align-items: center; gap: 1rem; margin-bottom: 2rem; font-size: .85rem; color: var(--lgray); }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; animation: pulse 1.5s ease-in-out infinite; }
+    .donate-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .founding-note { font-size: .78rem; color: var(--gray); margin-top: 1.5rem; font-style: italic; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: var(--dark); border-top: 1px solid rgba(201,162,78,.12); padding: 3rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+    .footer-brand h3 { font-family: "Playfair Display",serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: .5rem; }
+    .footer-brand p { font-size: .8rem; color: var(--gray); line-height: 1.7; font-weight: 300; max-width: 300px; }
+    .footer-col h4 { font-family: "Barlow Condensed",sans-serif; font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--lgray); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul a { font-size: .82rem; color: var(--gray); transition: color .2s; font-weight: 300; }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.05); display: flex; justify-content: space-between; align-items: center; font-size: .72rem; color: rgba(122,138,153,.5); flex-wrap: wrap; gap: .5rem; }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(6,14,24,.97); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: "Playfair Display",serif; font-size: 1.6rem; color: #fff; font-weight: 700; transition: color .2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: var(--lgray); font-size: 1.8rem; cursor: pointer; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: .8rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner, #mission .section-inner, #gap .section-inner, .involve-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+      .numbers-grid { grid-template-columns: repeat(2,1fr); }
+      .num-block { border-bottom: 1px solid rgba(201,162,78,.12); }
+      .proof-grid, .pillars-grid, .vision-build-list, .involve-cards { grid-template-columns: 1fr; }
+      .tier-grid { grid-template-columns: repeat(2,1fr); }
+      .section-inner { padding: 4rem 1.5rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      #truth { padding: 1.2rem 1.5rem; }
+      .hero-inner { padding: 6rem 1.5rem 3rem; }
+      .donate-cta-group { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-brand">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="The Clarity of Charity logo">
+        <circle cx="20" cy="20" r="19" stroke="#c9a24e" stroke-width="1.5"/>
+        <path d="M20 29 C20 29 10 22 10 16 C10 12.5 12.5 10 16 10 C17.8 10 19.2 11 20 12.2 C20.8 11 22.2 10 24 10 C27.5 10 30 12.5 30 16 C30 22 20 29 20 29Z" fill="none" stroke="#c9a24e" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M20 29 L20 32" stroke="#c9a24e" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="20" cy="8" r="1.2" fill="#c9a24e"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span>The Clarity of Charity</span>
+        <span>Multidimensional Healing for Survivors</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#numbers">The Scale</a></li>
+      <li><a href="#gap">The Gap</a></li>
+      <li><a href="#vision">Our Vision</a></li>
+      <li><a href="#involve">Get Involved</a></li>
+    </ul>
+    <a href="#donate" class="nav-donate">Become a Founding Donor</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <a href="#mission" class="mobile-link">Mission</a>
+    <a href="#numbers" class="mobile-link">The Scale</a>
+    <a href="#gap" class="mobile-link">The Gap</a>
+    <a href="#vision" class="mobile-link">Our Vision</a>
+    <a href="#involve" class="mobile-link">Get Involved</a>
+    <a href="#donate" class="mobile-link" style="color:var(--red)">Become a Founding Donor</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-eyebrow">The Clarity of Charity &mdash; Founding Campaign</p>
+        <h1 class="hero-h1">
+          Every <em>30 Seconds,</em><br>
+          a Child Is <em>Sold.</em><br>
+          <span class="gold">The Healing<br>Infrastructure<br>Doesn&rsquo;t Exist Yet.</span>
+        </h1>
+        <p class="hero-sub">
+          8 million children disappear every year. For those who survive &mdash;
+          the silence that follows is its own devastation.
+          <strong style="color:#fff">The Clarity of Charity</strong> is being built to change that.
+          We are in our founding stage. You are why we will launch.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#donate" class="btn-primary">Become a Founding Donor</a>
+          <a href="#mission" class="btn-secondary">Our Mission</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="clock-card">
+          <p class="clock-label">&#x23F1; Live &mdash; right now</p>
+          <p class="clock-main">Children sold since you opened this page:</p>
+          <div class="clock-counter" id="liveSold">0</div>
+          <p class="clock-sub">Based on 1 child every 30 seconds (UNICEF / ICMEC data)</p>
+          <div class="clock-divider"></div>
+          <div class="stat-row">
+            <div class="stat-item">
+              <span class="stat-num">2&nbsp;/&nbsp;min</span>
+              <span class="stat-lbl">Children sold per minute</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">8M&nbsp;/&nbsp;yr</span>
+              <span class="stat-lbl">Children who disappear annually</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">1&nbsp;in&nbsp;4</span>
+              <span class="stat-lbl">Girls abused before age 18 (US)</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">93%</span>
+              <span class="stat-lbl">Know their abuser personally</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      scroll
+    </div>
+  </section>
+
+  <!-- TRUTH BANNER -->
+  <div id="truth">
+    <p>
+      <strong>Childhood sexual abuse is humanity&rsquo;s greatest trauma</strong> &mdash;
+      the wound beneath the wound, the silence behind every addiction,
+      every broken relationship, every life half-lived.
+      It is also the most survivable &mdash; with the right support.
+    </p>
+  </div>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-eyebrow">Our Mission</p>
+        <h2 class="section-title">Built by someone who <em>refused to wait.</em></h2>
+        <p class="section-body">
+          The Clarity of Charity was not founded from a boardroom. It was founded
+          by someone who understands this crisis from the inside &mdash;
+          who looked at the scale of the problem, looked at the gap in the
+          healing infrastructure, and could not justify waiting for someone
+          else to build the solution.
+        </p>
+        <br>
+        <p class="section-body">
+          Before this organization had a name, our founder was already giving &mdash;
+          <strong>personally funding survivor-focused work in India</strong> because
+          the need was real and waiting felt unconscionable.
+          That commitment is the DNA of everything we are building.
+        </p>
+        <br>
+        <p class="section-body">
+          We are in our founding stage. The roadmap is clear. The mission is defined.
+          The only thing missing is the funding to build what the world desperately needs.
+          <strong>That is where you come in.</strong>
+        </p>
+        <div class="proof-pills">
+          <span class="pill">CDC Validated</span>
+          <span class="pill">WHO Recognized</span>
+          <span class="pill">UNICEF Data</span>
+          <span class="pill">ICMEC Research</span>
+          <span class="pill">Trauma-Informed</span>
+          <span class="pill">Survivor-Led Vision</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="founder-card">
+          <p class="founder-card-label">Why This Org Must Exist</p>
+          <p>
+            &ldquo;Most mental health systems apply a Band-Aid to a bullet wound. A prescription for anxiety.
+            A six-session therapy cap. A diagnosis that labels the survivor as broken &mdash; rather than as
+            someone whose nervous system responded perfectly to an impossible situation.
+            Trauma this deep requires multidimensional healing. Almost nowhere offers it.&rdquo;
+          </p>
+        </div>
+        <div class="founder-card">
+          <p class="founder-card-label">What the World Has Confirmed</p>
+          <p>
+            The Epstein&ndash;Maxwell federal records proved that abuse at scale is real and protected by
+            power. <em>Sound of Freedom</em> crossed $250 million at the box office &mdash; on a film the
+            major studios refused to distribute &mdash; proving millions of ordinary people are already
+            activated and looking for a real response. The awareness has arrived.
+            <strong style="color:#fff">The healing infrastructure has not.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section id="numbers">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">The Scale of the Crisis</p>
+      <h2 class="section-title reveal">Numbers the world <em>cannot afford</em> to ignore.</h2>
+      <p class="section-body reveal">
+        These are not estimates. They are documented by the CDC, WHO, UNICEF, and the
+        International Centre for Missing &amp; Exploited Children. They belong on the front
+        page of every newspaper. Instead, they are buried. Not here.
+      </p>
+      <div class="numbers-grid reveal">
+        <div class="num-block">
+          <span class="num-big">Every<br>30 sec</span>
+          <p class="num-desc">A child is sold somewhere in the world</p>
+          <span class="num-source">UNICEF / ICMEC</span>
+        </div>
+        <div class="num-block">
+          <span class="num-big">8 Million</span>
+          <p class="num-desc">Children disappear from their families every single year</p>
+          <span class="num-source">ICMEC Annual Data</span>
+        </div>
+        <div class="num-block">
+          <span class="num-big">1 in 4</span>
+          <p class="num-desc">Girls in the US experience sexual abuse before turning 18</p>
+          <span class="num-source">CDC, 2023</span>
+        </div>
+        <div class="num-block">
+          <span class="num-big gold">$9.3B</span>
+          <p class="num-desc">Annual lifetime economic cost of childhood sexual abuse in the US</p>
+          <span class="num-source">CDC Economic Analysis</span>
+        </div>
+      </div>
+      <div class="ticker-bar reveal">
+        <span class="ticker-label">&#x23F1; Since you arrived on this page</span>
+        <span class="ticker-number" id="tickerSold">0</span>
+        <span class="ticker-text">children have been sold. This number updates every second.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section id="proof">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">The World Is Waking Up</p>
+      <h2 class="section-title reveal">The evidence is no longer <em>deniable.</em></h2>
+      <div class="proof-grid">
+        <div class="proof-card c-red reveal">
+          <div class="proof-icon">&#x2696;&#xFE0F;</div>
+          <h3>The Epstein&ndash;Maxwell Federal Records</h3>
+          <p>Unsealed court documents proved that child exploitation is systemic, not isolated &mdash; protected by power, hidden by institutions. <strong>This is not a conspiracy theory. It is federal court record.</strong></p>
+        </div>
+        <div class="proof-card c-gold reveal">
+          <div class="proof-icon">&#x1F3AC;</div>
+          <h3>Sound of Freedom</h3>
+          <p>A $14M film the major studios refused to distribute. It crossed <strong>$250 million</strong> at the box office &mdash; out-grossing Mission: Impossible on opening weekend. Millions of people are already activated. They need somewhere to direct that energy.</p>
+        </div>
+        <div class="proof-card c-teal reveal">
+          <div class="proof-icon">&#x1F4DA;</div>
+          <h3>The Science Is Settled</h3>
+          <p>The CDC, WHO, and APA classify childhood sexual trauma as a root cause of adult mental health disorders, addiction, and chronic illness. Dr. Bessel van der Kolk&rsquo;s <em>The Body Keeps the Score</em> has sold <strong>over 2 million copies</strong> &mdash; the public already knows deep healing is needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE GAP -->
+  <section id="gap">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-eyebrow">The Problem We&rsquo;re Solving</p>
+        <h2 class="section-title">Awareness without infrastructure <em>is just grief.</em></h2>
+        <p class="section-body">
+          The world knows about this crisis. What the world lacks is a coordinated,
+          multidimensional healing infrastructure for the survivors it keeps producing.
+          We are building that infrastructure &mdash; from the ground up.
+        </p>
+        <blockquote class="gap-quote">
+          &ldquo;Trauma lives in the body, in the nervous system, in the beliefs a child formed
+          about themselves in their darkest moment. Those beliefs don&rsquo;t respond to a
+          six-session therapy limit. They require something far more sustained &mdash;
+          and far more whole.&rdquo;
+        </blockquote>
+        <ul class="gap-list">
+          <li><span>Most systems treat <strong>symptoms</strong>, never the root cause</span></li>
+          <li><span>Insurance caps sessions before real healing begins</span></li>
+          <li><span>Survivors are labeled <strong>broken</strong> rather than as people who survived impossible circumstances</span></li>
+          <li><span>No single modality treats trauma in its full complexity</span></li>
+          <li><span>The gap between <strong>awareness</strong> and <strong>accessible healing</strong> is immense</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <p class="section-eyebrow">Our Four Pillars</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:1rem;font-weight:700;">
+          The only <em style="color:var(--gold)">logical</em> response
+        </h3>
+        <div class="pillars-grid">
+          <div class="pillar">
+            <h4>Truth</h4>
+            <p>We name what others whisper. We cite what others ignore. The moment we speak at this scale, every timid response looks inadequate.</p>
+          </div>
+          <div class="pillar" style="border-top-color:var(--gold)">
+            <h4>Science</h4>
+            <p>Grounded in ACE studies, van der Kolk, Gab&oacute;r Mat&eacute;, and Peter Levine. Credible to skeptics and to survivors who have been failed before.</p>
+          </div>
+          <div class="pillar" style="border-top-color:var(--red)">
+            <h4>Wholeness</h4>
+            <p>Where others offer one modality, we build multidimensional healing. The survivor who has done 10 years of therapy and still feels broken will find hope here.</p>
+          </div>
+          <div class="pillar" style="border-top-color:var(--gold2)">
+            <h4>Agency</h4>
+            <p>We don&rsquo;t just help survivors. We turn donors and volunteers into agents of change. Everyone has a role. This is a movement, not a charity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">What We Are Building</p>
+      <h2 class="section-title reveal">We are building what should have existed <em>twenty years ago.</em></h2>
+      <p class="section-body reveal">
+        Your founding contribution doesn&rsquo;t fund a program that already runs.
+        It builds the infrastructure that makes every future program possible.
+        Here is exactly what your support creates:
+      </p>
+      <div class="vision-build-list">
+        <div class="build-item reveal">
+          <span class="build-num">01</span>
+          <div class="build-content">
+            <h4>Trauma-Informed Program Frameworks</h4>
+            <p>Evidence-based, multidimensional healing structures developed with expert advisors &mdash; designed to treat survivors as whole people, not diagnoses.</p>
+          </div>
+        </div>
+        <div class="build-item reveal">
+          <span class="build-num">02</span>
+          <div class="build-content">
+            <h4>Digital Access Platform</h4>
+            <p>A safe, accessible resource environment for survivors who cannot access in-person support &mdash; removing geography and cost as barriers to healing.</p>
+          </div>
+        </div>
+        <div class="build-item reveal">
+          <span class="build-num">03</span>
+          <div class="build-content">
+            <h4>Founding Professional Partnerships</h4>
+            <p>Relationships with trauma specialists, mental health professionals, and survivor-led organizations &mdash; the network that makes quality care possible at scale.</p>
+          </div>
+        </div>
+        <div class="build-item reveal">
+          <span class="build-num">04</span>
+          <div class="build-content">
+            <h4>Organizational Foundation</h4>
+            <p>Legal structure, governance, and operational systems that allow us to scale responsibly and remain accountable to every survivor we serve.</p>
+          </div>
+        </div>
+        <div class="build-item reveal">
+          <span class="build-num">05</span>
+          <div class="build-content">
+            <h4>The First Cohort</h4>
+            <p>The capacity to open our doors to our first survivors &mdash; not a promise, but a real door that is open, funded, and staffed. That moment starts here.</p>
+          </div>
+        </div>
+        <div class="build-item reveal">
+          <span class="build-num">06</span>
+          <div class="build-content">
+            <h4>Global Awareness Infrastructure</h4>
+            <p>The platform to connect the millions already activated by Sound of Freedom, the Epstein files, and #MeToo with a structured, legitimate way to act.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section id="involve">
+    <div class="section-inner">
+      <div class="involve-intro">
+        <div>
+          <p class="section-eyebrow reveal">Get Involved</p>
+          <h2 class="section-title reveal">You&rsquo;re not a bystander.<br>You&rsquo;re the <em>missing piece.</em></h2>
+        </div>
+        <div>
+          <p class="section-body reveal">
+            History doesn&rsquo;t remember the people who watched. It remembers the people who
+            moved first. The founding donors of every organization that changed the world
+            did so before there was proof it would work &mdash; because they understood that
+            proof only comes <strong>after</strong> someone decides to begin.
+          </p>
+        </div>
+      </div>
+      <div class="involve-cards">
+        <div class="involve-card card-donate reveal">
+          <div class="involve-icon">&#x2764;&#xFE0F;</div>
+          <h3>Become a Founding Donor</h3>
+          <p>
+            There will only ever be one founding moment. That window closes the day our first program launches.
+            <strong>Founding donor status is a genuinely scarce identity</strong> &mdash; and a permanent one.
+            You will always be able to say: I was there when it was just a vision. I was the reason it became real.
+          </p>
+          <div class="tier-grid">
+            <div class="tier"><span class="tier-amount">$25</span><span class="tier-desc">Founding Resource Fund</span></div>
+            <div class="tier"><span class="tier-amount">$100</span><span class="tier-desc">Program Development</span></div>
+            <div class="tier"><span class="tier-amount">$500</span><span class="tier-desc">Platform Infrastructure</span></div>
+            <div class="tier"><span class="tier-amount">$1,000</span><span class="tier-desc">Named Founding Donor</span></div>
+          </div>
+          <a href="#donate" class="involve-btn">Donate Now</a>
+        </div>
+        <div class="involve-card card-volunteer reveal">
+          <div class="involve-icon">&#x1F91D;</div>
+          <h3>Volunteer Your Expertise</h3>
+          <p>
+            We are actively building our founding team of trauma professionals, mental health practitioners,
+            technologists, designers, and advocates. <strong>If you have expertise that belongs in this movement,</strong>
+            we want to hear from you. Founding volunteers shape what this organization becomes.
+          </p>
+          <a href="mailto:theclarityofcharity.volunteer@gmail.com?subject=Volunteer%20Interest" class="involve-btn">Get In Touch</a>
+        </div>
+        <div class="involve-card card-share reveal">
+          <div class="involve-icon">&#x1F4E2;</div>
+          <h3>Break the Silence</h3>
+          <p>
+            Every 30 seconds, a child is sold. The silence around this crisis is what it depends on.
+            Sharing this page costs nothing. It may reach someone who becomes our founding donor,
+            our first program partner &mdash; <strong>or a survivor who finally believes healing is possible.</strong>
+          </p>
+          <button class="involve-btn" id="shareBtn">Share This Page</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate">
+    <div class="section-inner">
+      <p class="donate-urgency">Founding Campaign &mdash; Limited Window</p>
+      <h2 class="section-title reveal">
+        Every 30 seconds, a child is sold.<br>
+        The organization built to reach them<br>
+        <em>starts with you. Today.</em>
+      </h2>
+      <p class="section-body reveal">
+        You cannot save all 8 million. But you can help build the door.
+        The survivors waiting on the other side of this founding campaign
+        have already waited long enough.
+        <strong>Most people will see these numbers and scroll past. You didn&rsquo;t.</strong>
+        That tells us something about who you are.
+      </p>
+      <div class="donate-live">
+        <span class="live-dot"></span>
+        <span>Children sold since you opened this page: <strong id="donateCounter">0</strong> &mdash; and counting</span>
+      </div>
+      <div class="donate-cta-group reveal">
+        <a href="https://www.paypal.com/donate" class="btn-primary" style="font-size:.9rem;padding:1.1rem 2.5rem;">
+          &#x2764;&#xFE0F; Become a Founding Donor
+        </a>
+        <a href="mailto:theclarityofcharity@gmail.com?subject=I%20Want%20to%20Help" class="btn-secondary" style="font-size:.9rem;padding:1.1rem 2.5rem;">
+          Join the Founding Team
+        </a>
+      </div>
+      <p class="founding-note">
+        The Clarity of Charity is in its founding stage. Every dollar goes directly toward building
+        the program infrastructure, professional partnerships, and digital platform that will serve survivors.
+        We are transparent about where we are &mdash; and exactly where we are going.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>The Clarity of Charity</h3>
+        <p>
+          Multidimensional healing for survivors of childhood sexual abuse and trafficking.
+          Founded on the belief that healing must be whole to be real &mdash; and that every
+          survivor deserves access to it.
+        </p>
+        <br>
+        <p style="font-size:.72rem;color:rgba(122,138,153,.5)">
+          Data sources: CDC (2023), WHO, UNICEF, ICMEC, APA.<br>
+          Statistics cited from published, peer-reviewed research.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#mission">Our Mission</a></li>
+          <li><a href="#numbers">The Scale</a></li>
+          <li><a href="#gap">The Gap</a></li>
+          <li><a href="#vision">Our Vision</a></li>
+          <li><a href="#involve">Get Involved</a></li>
+          <li><a href="#donate">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:theclarityofcharity@gmail.com">Email Us</a></li>
+          <li><a href="mailto:theclarityofcharity.volunteer@gmail.com?subject=Volunteer">Volunteer</a></li>
+          <li><a href="mailto:theclarityofcharity@gmail.com?subject=Partnership">Partner With Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 The Clarity of Charity. Founding Stage.</span>
+      <span>Built on truth. Founded in commitment. Growing with you.</span>
+    </div>
+  </footer>
+
+  <script>
+    // LIVE COUNTER: 1 child every 30 seconds
+    var startTime = Date.now();
+
+    function getSold() {
+      var seconds = (Date.now() - startTime) / 1000;
+      return Math.floor(seconds / 30);
+    }
+
+    function updateCounters() {
+      var n = getSold();
+      var ids = ["liveSold", "tickerSold", "donateCounter"];
+      var i, el;
+      for (i = 0; i < ids.length; i++) {
+        el = document.getElementById(ids[i]);
+        if (el) { el.textContent = n; }
+      }
+    }
+
+    updateCounters();
+    setInterval(updateCounters, 1000);
+
+    // SCROLL NAV
+    var navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 60) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // MOBILE NAV
+    var hamburger = document.getElementById("hamburger");
+    var mobileNav = document.getElementById("mobileNav");
+    var mobileClose = document.getElementById("mobileClose");
+
+    hamburger.addEventListener("click", function () {
+      mobileNav.classList.add("open");
+    });
+
+    mobileClose.addEventListener("click", function () {
+      mobileNav.classList.remove("open");
+    });
+
+    var mobileLinks = document.querySelectorAll(".mobile-link");
+    var j;
+    for (j = 0; j < mobileLinks.length; j++) {
+      mobileLinks[j].addEventListener("click", function () {
+        mobileNav.classList.remove("open");
+      });
+    }
+
+    // SCROLL REVEAL
+    var revealObserver = new IntersectionObserver(function (entries) {
+      var k;
+      for (k = 0; k < entries.length; k++) {
+        if (entries[k].isIntersecting) {
+          var el = entries[k].target;
+          var siblings = el.parentElement.querySelectorAll(".reveal");
+          var idx = Array.prototype.indexOf.call(siblings, el);
+          (function (target, delay) {
+            setTimeout(function () {
+              target.classList.add("visible");
+            }, delay);
+          }(el, idx * 80));
+          revealObserver.unobserve(el);
+        }
+      }
+    }, { threshold: 0.1 });
+
+    var revealEls = document.querySelectorAll(".reveal");
+    var m;
+    for (m = 0; m < revealEls.length; m++) {
+      revealObserver.observe(revealEls[m]);
+    }
+
+    // SHARE BUTTON
+    var shareBtn = document.getElementById("shareBtn");
+    shareBtn.addEventListener("click", function () {
+      var url = "https://theclarityofcharity.github.io";
+      var shareText = "Every 30 seconds, a child is sold. 8 million disappear every year. The Clarity of Charity is building the healing infrastructure survivors deserve.";
+      if (navigator.share) {
+        navigator.share({ title: "The Clarity of Charity", text: shareText, url: url });
+      } else {
+        window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText + " " + url), "_blank");
+      }
+    });
+  </script>
+</body>
+</html>
